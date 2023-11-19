@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="hcela" id="Project-3e" database="SqlServer" >
+	<schema name="dbo" catalogname="hcela" >
+		<view name="clases" >
+			<view_script><![CDATA[CREATE VIEW ${schemaName}.${viewName} AS ...
+CREATE TABLE `roles` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+);
+
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `role_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `fk_roles` (`role_id`),
+  CONSTRAINT `fk_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
+);]]></view_script>
+		</view>
+	</schema>
+	<layout name="Default Layout" id="Layout-236c" show_relation="columns" >
+		<callout x="48" y="48" pointer="Round" >
+			<comment><![CDATA[This is a layout - a diagram with tools.
+- Right-click the layout to create new tables. 
+- Double-click table headers to edit. 
+- For a better understanding of the schema, create multiple layouts.
+- Save the design to the model file, and deploy from 'Schema / Create into the database'.]]></comment>
+		</callout>
+	</layout>
+	<layout name="clases4" id="Layout-1c3e" joined_routing="y" show_relation="columns" >
+		<entity schema="hcela.dbo" name="clases" color="3986C1" x="48" y="48" />
+		<script name="SQL_Editor" id="Editor-22f9" language="SQL" >
+			<string><![CDATA[CREATE TABLE `roles` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+);
+
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `role_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `fk_roles` (`role_id`),
+  CONSTRAINT `fk_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
+);]]></string>
+		</script>
+		<script name="SQL_Editor_001" id="Editor-2377" language="SQL" >
+			<string><![CDATA[CREATE TABLE `roles` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+);
+
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `role_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `fk_roles` (`role_id`),
+  CONSTRAINT `fk_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
+);]]></string>
+		</script>
+	</layout>
+</project>
